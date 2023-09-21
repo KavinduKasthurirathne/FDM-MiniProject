@@ -1,4 +1,4 @@
-## FDM - Mini Project 👍
+# FDM - Mini Project 👍
 ## (Loan Approval Prediction Model)
 ### <i>Required dataset - loan_approval_dataset.csv</i>
 
