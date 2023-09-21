@@ -1,4 +1,6 @@
-## FDM - Mini Project 👍
+# FDM - Mini Project 👍
+## (Loan Approval Prediction Model)
+### <i>Required dataset - loan_approval_dataset.csv</i>
 
 ### Group Members: 👀
 Arawwala D.J.S.S. - IT21053528<br>
