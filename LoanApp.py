@@ -27,9 +27,11 @@ def predict_loan_status(data):
 # Streamlit App
 def main():
     st.title("Loan Status Prediction App")
-
+    st.write("This predicts the likelihood of loan approval based on applicant information and historical loan data.")
+    st.write("Please click the button below to see the loan status prediction")
     # Sidebar with user inputs
-    st.sidebar.header("Input the features")
+    
+    st.sidebar.header("Insert the information for the prediction")
 
     # Collect user input
     def user_input_features():
@@ -74,8 +76,8 @@ def main():
     user_input = user_input_features()
     
     # Display user input
-    st.subheader('Your Input:')
-    st.write(user_input)
+    # st.subheader('Your Input:')
+    # st.write(user_input)
     
     # Button to trigger predictions
     if st.button('Predict Loan Status'):
@@ -86,9 +88,13 @@ def main():
         st.subheader('Prediction:')
      
         if prediction_label == "Approved":
-            st.success("Loan Approved")
+            st.success("Loan will be Approved")
+            st.write("Model Accuracy: 98.5%")
         else:
-            st.error( "Loan Rejected")
+            st.error( "Loan will be Rejected")
+            st.write("Model Accuracy: 98.5%",)
+            
+    
 
 if __name__ == '__main__':
     main()
