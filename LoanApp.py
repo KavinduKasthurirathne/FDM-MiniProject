@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import pickle
 import numpy as np
-from sklearn.preprocessing import StandardScaler
 
 
 # Load the pre-trained model
@@ -28,10 +27,23 @@ def predict_loan_status(data):
 def main():
     st.title("Loan Status Prediction App")
     st.write("This predicts the likelihood of loan approval based on applicant information and historical loan data.")
+    st.write("""<table>
+            <tr><td> No of dependents</td><td> Number of dependents of the applicant</td></tr>
+            <tr><td> Education</td><td>Education level of the applicant</td></tr>
+            <tr><td> Self employed</td><td>If the applicant is self-employed or not</td></tr>
+            <tr><td> Annual Income</td><td>Annual income of the applicant</td></tr>
+            <tr><td> Loan Amount</td><td>Loan amount requested by the applicant</td></tr>
+            <tr><td> Loan Term (Years)</td><td>Tenure of the loan requested by the applicant (in Years)</td></tr>
+            <tr><td> CIBIL Score</td><td>CIBIL score of the applicant</td></tr>
+            <tr><td> Residential Assets Value</td><td>Value of the residential asset of the applicant</td></tr>
+            <tr><td> commercial_asset_value</td><td>Value of the commercial asset of the applicant</td></tr>
+            <tr><td> luxury_asset_value</td><td>Value of the luxury asset of the applicant</td></tr>
+            <tr><td> bank_assets_value</td><td>Value of the bank asset of the applicant</td></tr>
+            <tr><td> loan_status</td><td>Status of the loan (Approved/Rejected)</td></table></tr><br>""",unsafe_allow_html=True)
     st.write("Please click the button below to see the loan status prediction")
     # Sidebar with user inputs
     
-    st.sidebar.header("Insert the information for the prediction")
+    st.sidebar.header("Insert the Applicant information")
 
     # Collect user input
     def user_input_features():
