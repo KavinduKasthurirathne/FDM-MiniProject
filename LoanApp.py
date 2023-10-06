@@ -3,7 +3,6 @@ import pandas as pd
 import pickle
 import numpy as np
 
-
 # Load the pre-trained model
 model = pickle.load(open('grid_search_gb_model.pkl','rb'))
 
