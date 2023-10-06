@@ -4,9 +4,9 @@ import pickle
 import numpy as np
 
 # Load the pre-trained model
-model = pickle.load(open('grid_search_gb_model.pkl','rb'))
+model = pickle.load(open('grid_search_gb_model.sav','rb'))
 
-with open('standard_scaler.pkl', 'rb') as scaler_file:
+with open('standard_scaler.sav', 'rb') as scaler_file:
     scaler = pickle.load(scaler_file)
 
 # Function to make predictions
