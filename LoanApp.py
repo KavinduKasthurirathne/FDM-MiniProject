@@ -93,20 +93,28 @@ def main():
     # st.subheader('Your Input:')
     # st.write(user_input)
 
+    # ... (previous code)
+
     # Button to trigger predictions
-    if user_input is not None and st.button('Predict Loan Status'):
-        # Make predictions and get labels
-        prediction_label = predict_loan_status(user_input)
+    if user_input is not None:
+        if st.button('Predict Loan Status'):
+            # Check if all input values are provided
+            if all(value is not None for value in user_input.values()):
+                # Make predictions and get labels
+                prediction_label = predict_loan_status(user_input)
 
-        # Display prediction label
-        st.subheader('Prediction:')
+                # Display prediction label
+                st.subheader('Prediction:')
 
-        if prediction_label == "Approved":
-            st.success("Loan will be Approved")
-            st.write("Model Accuracy: 98.5%")
-        else:
-            st.error("Loan will be Rejected")
-            st.write("Model Accuracy: 98.5%")
+                if prediction_label == "Approved":
+                    st.success("Loan will be Approved")
+                    st.write("Model Accuracy: 98.5%")
+                else:
+                    st.error("Loan will be Rejected")
+                    st.write("Model Accuracy: 98.5%")
+            else:
+                st.error("Please provide values for all input fields.")
+
 
 if __name__ == '__main__':
     main()
