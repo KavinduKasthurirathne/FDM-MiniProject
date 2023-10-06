@@ -101,7 +101,7 @@ def main():
         st.subheader('Prediction:')
      
         if prediction_label == "Approved":
-            st.success("Loan will be Approved")
+            st.success("Loan will be Approved", icon="success")
             st.write("Model Accuracy: 98.5%")
         else:
             st.error( "Loan will be Rejected")
