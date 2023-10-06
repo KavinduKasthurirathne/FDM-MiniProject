@@ -40,7 +40,7 @@ def main():
             <tr><td> luxury_asset_value</td><td>Value of the luxury asset of the applicant</td></tr>
             <tr><td> bank_assets_value</td><td>Value of the bank asset of the applicant</td></tr>
             </table><br>""",unsafe_allow_html=True)
-    st.write("Click the <- left side bar to insert information")
+    st.write("Click the left side bar to insert information")
     st.write("Please click the button below to see the loan status prediction")
     # Sidebar with user inputs
     
