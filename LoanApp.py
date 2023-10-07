@@ -17,6 +17,7 @@ def predict_loan_status(data):
     # Use the loaded scaler to transform new data
     new_data_scaled = scaler.transform(data)
 
+    #predicting for the preprocessed data
     prediction = model.predict(new_data_scaled)
 
     return "Approved" if prediction[0] == 1 else "Rejected"
