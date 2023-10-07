@@ -1,5 +1,5 @@
 # FDM - Mini Project 👍
-## (Loan Approval Prediction Model)
+## Loan Approval Prediction Model - 🔗https://loan-status.streamlit.app/
 ### <i>Required dataset - loan_approval_dataset.csv</i>
 
 ### Group Members: 👀

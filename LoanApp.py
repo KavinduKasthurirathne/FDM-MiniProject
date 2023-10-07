@@ -3,22 +3,20 @@ import pandas as pd
 import pickle
 import numpy as np
 
-
 # Load the pre-trained model
-model = pickle.load(open('grid_search_gb_model.pkl','rb'))
+model = pickle.load(open('grid_search_gb_model.pkl', 'rb'))
 
 with open('standard_scaler.pkl', 'rb') as scaler_file:
     scaler = pickle.load(scaler_file)
 
 # Function to make predictions
 def predict_loan_status(data):
-    
-    data['education'] = data['education'].map({'Not Graduate':0, 'Graduate':1})
-    data['self_employed'] = data['self_employed'].map({'No':0, 'Yes':1})
+    data['education'] = data['education'].map({'Not Graduate': 0, 'Graduate': 1})
+    data['self_employed'] = data['self_employed'].map({'No': 0, 'Yes': 1})
 
     # Use the loaded scaler to transform new data
     new_data_scaled = scaler.transform(data)
-    
+
     prediction = model.predict(new_data_scaled)
 
     return "Approved" if prediction[0] == 1 else "Rejected"
@@ -26,7 +24,8 @@ def predict_loan_status(data):
 # Streamlit App
 def main():
     st.title("Loan Status Prediction App")
-    st.write("This predicts the likelihood of loan approval based on applicant information and historical loan data.")
+    st.write("This app predicts the likelihood of loan approval based on applicant information and historical loan data.")
+    st.write("Below are features used to predict the likelihood of loan approval")
     st.write("""<table>
             <tr><td> No of dependents</td><td> Number of dependents of the applicant</td></tr>
             <tr><td> Education</td><td>Education level of the applicant</td></tr>
@@ -39,10 +38,11 @@ def main():
             <tr><td> commercial_asset_value</td><td>Value of the commercial asset of the applicant</td></tr>
             <tr><td> luxury_asset_value</td><td>Value of the luxury asset of the applicant</td></tr>
             <tr><td> bank_assets_value</td><td>Value of the bank asset of the applicant</td></tr>
-            <tr><td> loan_status</td><td>Status of the loan (Approved/Rejected)</td></table></tr><br>""",unsafe_allow_html=True)
+            </table><br>""", unsafe_allow_html=True)
+    st.write("Click the left side bar to insert information")
     st.write("Please click the button below to see the loan status prediction")
     # Sidebar with user inputs
-    
+
     st.sidebar.header("Insert the Applicant information")
 
     # Collect user input
@@ -60,11 +60,11 @@ def main():
         bank_asset_value = st.sidebar.number_input('Bank Asset Value', 0, step=1000)
 
         feature_names = [
-        'no_of_dependents', 'education', 'self_employed', 'income_annum', 'loan_amount', 'loan_term',
-        'cibil_score', 'residential_assets_value', 'commercial_assets_value',
-        'luxury_assets_value', 'bank_asset_value'
+            'no_of_dependents', 'education', 'self_employed', 'income_annum', 'loan_amount', 'loan_term',
+            'cibil_score', 'residential_assets_value', 'commercial_assets_value',
+            'luxury_assets_value', 'bank_asset_value'
         ]
-        
+
         # Create a dictionary for user input
         data = {
             'no_of_dependents': no_of_dependents,
@@ -80,35 +80,33 @@ def main():
             'bank_asset_value': bank_asset_value
         }
 
-        # Convert to DataFrame
-        features = pd.DataFrame(data, index=[0], columns=feature_names)
-        return features
+        # Check if all input values are provided
+        if all(value is not None for value in data.values()):
+            return pd.DataFrame(data, index=[0], columns=feature_names)
+        else:
+            return None
 
     # Get user input
     user_input = user_input_features()
-    
+
     # Display user input
     # st.subheader('Your Input:')
     # st.write(user_input)
-    
+
     # Button to trigger predictions
-    if st.button('Predict Loan Status'):
+    if user_input is not None and st.button('Predict Loan Status'):
         # Make predictions and get labels
         prediction_label = predict_loan_status(user_input)
-        
+
         # Display prediction label
         st.subheader('Prediction:')
-     
+
         if prediction_label == "Approved":
             st.success("Loan will be Approved")
             st.write("Model Accuracy: 98.5%")
         else:
-            st.error( "Loan will be Rejected")
-            st.write("Model Accuracy: 98.5%",)
-            
-    
+            st.error("Loan will be Rejected")
+            st.write("Model Accuracy: 98.5%")
 
 if __name__ == '__main__':
     main()
-
-#streamlit run LoanApp.py
