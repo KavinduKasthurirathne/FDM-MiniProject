@@ -99,7 +99,7 @@ def main():
 
     # Button to trigger predictions
     if st.button('Predict Loan Status'):
-        if all(user_input) is not None:
+        if any(user_input) is not None:
             # Make predictions and get labels
             prediction_label = predict_loan_status(user_input)
 
@@ -108,11 +108,10 @@ def main():
 
             if prediction_label == "Approved":
                 st.success("Loan will be Approved")
-                st.write("Model Accuracy: 98.5%")
             else:
                 st.error("Loan will be Rejected")
-                st.write("_Model Accuracy: 98.5%_")
                 
+            st.write("_Model Accuracy: 98.5%_")    
             st.toast('Your prediction is successfull')
         else:
             st.toast('Please insert values first')
