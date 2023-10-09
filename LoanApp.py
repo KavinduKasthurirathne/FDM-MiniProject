@@ -41,8 +41,8 @@ def main():
             <tr><th> luxury_asset_value</th><td>Value of the luxury asset of the applicant</td></tr>
             <tr><th> bank_assets_value</th><td>Value of the bank asset of the applicant</td></tr>
             </table><br>""", unsafe_allow_html=True)
-    st.write(':blue[_Click the left side bar to insert information_]')
     st.divider()
+    st.write(':blue[_Click the left side bar to insert information_]')
     st.write("Please click the button below to see the loan status prediction")
     # Sidebar with user inputs
 
