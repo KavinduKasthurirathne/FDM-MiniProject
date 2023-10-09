@@ -44,7 +44,7 @@ def main():
             </table><br>""", unsafe_allow_html=True)
     st.write(':violet[_Click the left side bar to insert information_]')
     st.divider()
-    st.write("_Please click the button below to see the loan status prediction :red[after you insert the information_]")
+    st.write("_Please click the button below to see the loan status prediction :red[after you insert the information]_")
     # Sidebar with user inputs
 
     st.sidebar.header("Insert The Applicant Information",divider="violet")
