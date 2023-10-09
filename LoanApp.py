@@ -29,17 +29,17 @@ def main():
     st.divider()
     st.write("Below are features used to predict the likelihood of loan approval")
     st.write("""<table>
-            <tr><td> No of dependents</td><td> Number of dependents of the applicant</td></tr>
-            <tr><td> Education</td><td>Education level of the applicant</td></tr>
-            <tr><td> Self employed</td><td>If the applicant is self-employed or not</td></tr>
-            <tr><td> Annual Income</td><td>Annual income of the applicant</td></tr>
-            <tr><td> Loan Amount</td><td>Loan amount requested by the applicant</td></tr>
-            <tr><td> Loan Term (Years)</td><td>Tenure of the loan requested by the applicant (in Years)</td></tr>
-            <tr><td> CIBIL Score</td><td>CIBIL score of the applicant</td></tr>
-            <tr><td> Residential Assets Value</td><td>Value of the residential asset of the applicant</td></tr>
-            <tr><td> commercial_asset_value</td><td>Value of the commercial asset of the applicant</td></tr>
-            <tr><td> luxury_asset_value</td><td>Value of the luxury asset of the applicant</td></tr>
-            <tr><td> bank_assets_value</td><td>Value of the bank asset of the applicant</td></tr>
+            <tr><th> No of dependents</th><td> Number of dependents of the applicant</td></tr>
+            <tr><th> Education</th><td>Education level of the applicant</td></tr>
+            <tr><th> Self employed</th><td>If the applicant is self-employed or not</td></tr>
+            <tr><th> Annual Income</th><td>Annual income of the applicant</td></tr>
+            <tr><th> Loan Amount</th><td>Loan amount requested by the applicant</td></tr>
+            <tr><th> Loan Term (Years)</th><td>Tenure of the loan requested by the applicant (in Years)</td></tr>
+            <tr><th> CIBIL Score</th><td>CIBIL score of the applicant</td></tr>
+            <tr><th> Residential Assets Value</th><td>Value of the residential asset of the applicant</td></tr>
+            <tr><th> commercial_asset_value</th><td>Value of the commercial asset of the applicant</td></tr>
+            <tr><th> luxury_asset_value</th><td>Value of the luxury asset of the applicant</td></tr>
+            <tr><th> bank_assets_value</th><td>Value of the bank asset of the applicant</td></tr>
             </table><br>""", unsafe_allow_html=True)
     st.write(':blue[_Click the left side bar to insert information_]')
     st.divider()
