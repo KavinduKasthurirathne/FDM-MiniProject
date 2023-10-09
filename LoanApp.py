@@ -25,7 +25,7 @@ def predict_loan_status(data):
 # Streamlit App
 def main():
     st.title("Loan Status Prediction App")
-    st.header("This app predicts the likelihood of loan approval based on applicant information and historical loan data.")
+    st.subheader("This app predicts the likelihood of loan approval based on applicant information and historical loan data.")
     st.write("Below are features used to predict the likelihood of loan approval")
     st.write("""<table>
             <tr><td> No of dependents</td><td> Number of dependents of the applicant</td></tr>
