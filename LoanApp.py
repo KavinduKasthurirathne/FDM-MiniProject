@@ -113,6 +113,8 @@ def main():
             st.write("_Model Accuracy: 98.5%_")
             
         st.toast('Your prediction is successfull')
+    else:
+        st.toast('Please insert values first')
 
 if __name__ == '__main__':
     main()
