@@ -99,7 +99,7 @@ def main():
 
     # Button to trigger predictions
     if st.button('Predict Loan Status'):
-        if user_input is not None:
+        if all(user_input) is not None:
             # Make predictions and get labels
             prediction_label = predict_loan_status(user_input)
 
