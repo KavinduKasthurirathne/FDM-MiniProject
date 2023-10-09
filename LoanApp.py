@@ -42,9 +42,9 @@ def main():
             <tr><th> Luxury Assets Value</th><td>Value of the luxury asset of the applicant</td></tr>
             <tr><th> Bank Asset Value</th><td>Value of the bank asset of the applicant</td></tr>
             </table><br>""", unsafe_allow_html=True)
-    st.write(':violet[_Click the left side bar to insert information_]')
+    st.write(':blue[_Click the left side bar to insert information_]')
     st.divider()
-    st.write("_Please click the button below to see the loan status prediction :red[after you insert the information]_")
+    st.write("_Please click the button below to see the loan status prediction :red[after you insert the information.]_")
     # Sidebar with user inputs
 
     st.sidebar.header("Insert The Applicant Information",divider="violet")
@@ -54,14 +54,14 @@ def main():
         no_of_dependents = st.sidebar.slider('Number of Dependents', 0, 10, 1)
         education = st.sidebar.selectbox('Education', ('Graduate', 'Not Graduate'))
         self_employed = st.sidebar.selectbox('Self Employed', ('Yes', 'No'))
-        income_annum = st.sidebar.number_input('Annual Income', 0, step=1000)
-        loan_amount = st.sidebar.number_input('Loan Amount', 0, step=1000)
+        income_annum = st.sidebar.number_input('Annual Income',0, None, 200000, step=1000)
+        loan_amount = st.sidebar.number_input('Loan Amount', 0, None, 300000, step=1000)
         loan_term = st.sidebar.number_input('Loan Term (Years)', 2, 25, 2)
         cibil_score = st.sidebar.number_input('CIBIL Score', 300, 900, 600)
-        residential_assets_value = st.sidebar.number_input('Residential Assets Value', 0, step=1000)
-        commercial_assets_value = st.sidebar.number_input('Commercial Assets Value', 0, step=1000)
-        luxury_assets_value = st.sidebar.number_input('Luxury Assets Value', 0, step=1000)
-        bank_asset_value = st.sidebar.number_input('Bank Asset Value', 0, step=1000)
+        residential_assets_value = st.sidebar.number_input('Residential Assets Value', 0, None, 1000000, step=1000)
+        commercial_assets_value = st.sidebar.number_input('Commercial Assets Value', 0, None, 10000, step=1000)
+        luxury_assets_value = st.sidebar.number_input('Luxury Assets Value',0, None, 10000, step=1000)
+        bank_asset_value = st.sidebar.number_input('Bank Asset Value', 0, None, 10000, step=1000)
 
         feature_names = [
             'no_of_dependents', 'education', 'self_employed', 'income_annum', 'loan_amount', 'loan_term',
@@ -99,7 +99,7 @@ def main():
 
     # Button to trigger predictions
     if st.button('Predict Loan Status'):
-        if any(user_input) is not None:
+        if any(user_input) != None:
             # Make predictions and get labels
             prediction_label = predict_loan_status(user_input)
 
