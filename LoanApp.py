@@ -25,7 +25,9 @@ def predict_loan_status(data):
 # Streamlit App
 def main():
     st.title("Loan Status Prediction App")
-    st.subheader("This app predicts the likelihood of loan approval based on applicant information and historical loan data.")
+    st.divider()
+    st.subheader("This app predicts the likelihood of loan approval based on applicant information and historical loan data.",divider='rainbow')
+    st.divider()
     st.write("Below are features used to predict the likelihood of loan approval")
     st.write("""<table>
             <tr><td> No of dependents</td><td> Number of dependents of the applicant</td></tr>
@@ -41,6 +43,7 @@ def main():
             <tr><td> bank_assets_value</td><td>Value of the bank asset of the applicant</td></tr>
             </table><br>""", unsafe_allow_html=True)
     st.write(':blue[_Click the left side bar to insert information_]')
+    st.divider()
     st.write("Please click the button below to see the loan status prediction")
     # Sidebar with user inputs
 
