@@ -98,23 +98,24 @@ def main():
     # st.write(user_input)
 
     # Button to trigger predictions
-    if user_input is not None and st.button('Predict Loan Status'):
-        # Make predictions and get labels
-        prediction_label = predict_loan_status(user_input)
+    if st.button('Predict Loan Status'):
+        if user_input is not None:
+            # Make predictions and get labels
+            prediction_label = predict_loan_status(user_input)
 
-        # Display prediction label
-        st.subheader('Prediction:')
+            # Display prediction label
+            st.subheader('Prediction:')
 
-        if prediction_label == "Approved":
-            st.success("Loan will be Approved")
-            st.write("Model Accuracy: 98.5%")
+            if prediction_label == "Approved":
+                st.success("Loan will be Approved")
+                st.write("Model Accuracy: 98.5%")
+            else:
+                st.error("Loan will be Rejected")
+                st.write("_Model Accuracy: 98.5%_")
+                
+            st.toast('Your prediction is successfull')
         else:
-            st.error("Loan will be Rejected")
-            st.write("_Model Accuracy: 98.5%_")
-            
-        st.toast('Your prediction is successfull')
-    else:
-        st.toast('Please insert values first')
+            st.toast('Please insert values first')
 
 if __name__ == '__main__':
     main()
