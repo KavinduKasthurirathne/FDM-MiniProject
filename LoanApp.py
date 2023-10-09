@@ -47,7 +47,7 @@ def main():
     st.write("_Please click the button below to see the loan status prediction after you insert the information_")
     # Sidebar with user inputs
 
-    st.sidebar.header("Insert the Applicant information")
+    st.sidebar.header("Insert the Applicant information",divider="gray")
 
     # Collect user input
     def user_input_features():
