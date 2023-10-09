@@ -110,7 +110,9 @@ def main():
             st.write("Model Accuracy: 98.5%")
         else:
             st.error("Loan will be Rejected")
-            st.write("Model Accuracy: 98.5%")
+            st.write("_Model Accuracy: 98.5%_")
+            
+        st.toast('Your prediction is successfull')
 
 if __name__ == '__main__':
     main()
